@@ -3,15 +3,16 @@
   <head>
     <title>Chat Thing-a-ma-jig</title>
   </head>
-  <body>
-  	<h2> Welcome to Mr. Chat land </h2>
-  	<form action='/clear/' method="POST">
-  		<input type = 'button'> clear messages </input>
+  <body style='background-color:#e3fff6'>
+  	<div style='text-align:center'>
+  	<img src="{{url_for('static', filename='Chat Land.jpg')}}" style='width:400px'></img>
+  	<form style='size:50px'name='clear_form' action='/clear/' method="POST">
+  		<button type = 'submit'> clear messages </button>
   	</form>
-    <h3 'style=color: #ccc;font-size: 30px;'>No message yet..</h3>
+    <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
     <div class="message_holder"></div>
 
-    <form action="message" method="POST">
+    <form name='text_form' action="message" method="POST">
       <input type="text" class="username" placeholder="User Name"/>
       <input type="text" class="message" placeholder="Messages"/>
       <input type="submit"/>
@@ -37,6 +38,7 @@
           data: 'User Connected'
         } ) } )
         var form = $( 'form' ).on( 'submit', function( e ) {
+        if(e.target.name == 'text_form'){
           e.preventDefault()
           let user_name = $( 'input.username' ).val()
           let user_input = $( 'input.message' ).val()
@@ -45,7 +47,7 @@
             message : user_input
           } )
           $( 'input.message' ).val( '' ).focus()
-        } )
+        }} )
      
       socket.on( 'my response', function( msg ) {
         console.log( msg )
@@ -55,6 +57,6 @@
         }
       })
     </script>
-
+</div>
   </body>
   </html>
