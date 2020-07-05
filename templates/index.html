@@ -1,10 +1,12 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
     <title>Chat Thing-a-ma-jig</title>
   </head>
   <body style='background-color:#e3fff6'>
-  	<div style='text-align:center'>
+  	<div style='text-align:center;display:block;margin-left:auto;margin-right:auto;width:80%;position:absolute'>
   	<img src="{{url_for('static', filename='Chat Land.jpg')}}" style='width:400px'></img>
   	<form style='size:50px'name='clear_form' action='/clear/' method="POST">
   		<button type = 'submit'> clear messages </button>
@@ -12,7 +14,7 @@
     <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
     <div class="message_holder"></div>
 
-    <form name='text_form' action="message" method="POST">
+    <form style='margin-left:41.687976%' name='text_form' action="message" method="POST">
       <input type="text" class="username" placeholder="User Name"/>
       <input type="text" class="message" placeholder="Messages"/>
       <input type="submit"/>
